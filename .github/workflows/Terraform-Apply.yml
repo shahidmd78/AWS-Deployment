@@ -1,5 +1,4 @@
-  push:
-    branches: master
+  branches: master
 
     name: terraform
     runs-on: ubuntu-latest
