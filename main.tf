@@ -1,21 +1,20 @@
 terraform {
-  cloud {
-    organization = "Bisma"
-
-    workspaces {
-      name = "Shahid"
-    }
-  }
-}
-
-terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
       version = "4.53.0"
     }
   }
+backend "remote" {
+  organization = "Bisma"
+  workspaces {
+    name = "shahid"
+  }
 }
+}
+
+
+
 
 provider "aws" {
   region = "us-east-1"
