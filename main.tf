@@ -22,10 +22,10 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "b" {
-  bucket = "my-tf-test-bucket-233334"
+  bucket = "my-tf-test-bucket-233335"
 
   tags = {
-    Name        = "My bucket22"
+    Name        = "My bucket23"
     Environment = "Dev"
   }
 }
