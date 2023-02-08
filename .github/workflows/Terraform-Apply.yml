@@ -1,6 +1,5 @@
 name: "Terraform-Plan-Infra-Apply"
 
-
   push:
     branches: master
 
