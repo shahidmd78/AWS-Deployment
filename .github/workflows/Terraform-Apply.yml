@@ -30,7 +30,7 @@ on:
   push:
     branches: master
 jobs:
-  terraform:
+   terraform:
     name: "terraform"
     runs-on: ubuntu-latest
     env:
