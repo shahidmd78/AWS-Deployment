@@ -29,7 +29,7 @@ name: "Terraform-Plan-Infra-Plan"
 on:
   push:
     branches: 
-        - Futurebranch1
+        - master
 
 jobs:
   terraform:
