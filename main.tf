@@ -89,7 +89,7 @@ resource "aws_security_group" "allow_tls" {
 
 
 resource "aws_instance" "terraform-ec2-example" {
-  ami           = "ami-062f1ebb46b295c7c" 
+  ami           = "ami-03c1fac8dd915ff60" 
   instance_type = "t2.micro"
   tags = {
     name = "Terraform-EC2"
