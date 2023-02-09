@@ -84,3 +84,27 @@ resource "aws_security_group" "allow_tls" {
     Name = "allow_tls"
   }
 }
+# Compute instance
+
+resource "aws_network_interface" "ec2-nic1" {
+  subnet_id   = aws_subnet.my_subnet.id
+  private_ips = ["172.16.10.100"]
+
+  tags = {
+    Name = "primary_network_interface"
+  }
+}
+
+
+
+resource "aws_instance" "terraform-ec2-example" {
+  ami           = "ami-062f1ebb46b295c7c" 
+  instance_type = "t2.micro"
+  tags = {
+    name = "Terraform-EC2"
+  }
+}
+  network_interface {
+    network_interface_id = aws_network_interface.ec2-nic1.id
+    device_index         = 0
+  }
