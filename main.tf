@@ -53,6 +53,20 @@ resource "aws_subnet" "my_subnet" {
   }
 }
 
+#Netwrk Interface
+
+resource "aws_network_interface" "foo" {
+  subnet_id   = aws_subnet.my_subnet.id
+  private_ips = ["172.16.10.100"]
+
+  tags = {
+    Name = "primary_network_interface"
+  }
+}
+
+
+
+
 resource "aws_ec2_transit_gateway" "example" {
   description = "example"
 }
@@ -94,5 +108,9 @@ resource "aws_instance" "terraform-ec2-example" {
   tags = {
     name = "Terraform-EC2"
   }
+
+  network_interface {
+    network_interface_id = aws_network_interface.foo.id
+    device_index         = 0
+  }
 }
- 
