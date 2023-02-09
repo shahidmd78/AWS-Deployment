@@ -52,3 +52,7 @@ resource "aws_subnet" "my_subnet" {
     Name = "tf-example"
   }
 }
+
+resource "aws_ec2_transit_gateway" "example" {
+  description = "example"
+}
