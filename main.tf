@@ -79,7 +79,7 @@ resource "aws_security_group" "allow_tls" {
   vpc_id      = aws_vpc.my_vpc.id
 
   ingress {
-    description      = "TLS from VPC"
+    description      = "TLS from VPC 1"
     from_port        = 443
     to_port          = 443
     protocol         = "tcp"
