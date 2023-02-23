@@ -107,7 +107,10 @@ resource "aws_security_group" "allow_tls" {
 resource "aws_instance" "terraform-ec2-instance-1" {
   ami           = "ami-03c1fac8dd915ff60" 
   instance_type = "t2.micro"
-  name          = "EC2-Instance-via-Terraform"
+  vpc_security_group_ids = "[allow_tls]"
+  tags = {
+    name = "Terraform-EC2"
+  }
 
   network_interface {
     network_interface_id = aws_network_interface.foo.id
