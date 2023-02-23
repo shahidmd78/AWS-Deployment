@@ -21,7 +21,7 @@ provider "aws" {
 }
 
 #********************S3 Bucket*********************
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "s3-bucket" {
   bucket = "terraform-test-bucket-233348"
 
   tags = {
@@ -31,7 +31,7 @@ resource "aws_s3_bucket" "b" {
 }
 
 
-resource "aws_s3_bucket_acl" "" {
+resource "aws_s3_bucket_acl" "s3-bucket-acl" {
   bucket = aws_s3_bucket.b.id
   acl    = "private"
 }
