@@ -8,7 +8,7 @@ terraform {
 backend "remote" {
   organization = "Bisma"
   workspaces {
-    name = "shahid"
+    name = "AWS-GitHub"
   }
 }
 }
