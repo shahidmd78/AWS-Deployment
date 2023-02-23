@@ -93,7 +93,6 @@ resource "aws_security_group" "allow_tls" {
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
   }
 
   tags = {
@@ -108,8 +107,9 @@ resource "aws_instance" "terraform-ec2-instance-1" {
   ami           = "ami-03c1fac8dd915ff60" 
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
-  tags = {
-    name = "Terraform-EC2"
+   tags = {
+    Name        = "My EC2 Instance"
+    Environment = "Production"
   }
  subnet_id = aws_subnet.my_subnet.id
   
