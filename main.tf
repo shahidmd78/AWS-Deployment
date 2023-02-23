@@ -20,8 +20,9 @@ provider "aws" {
   region = "us-east-1"
 }
 
+#********************S3 Bucket*********************
 resource "aws_s3_bucket" "b" {
-  bucket = "my-tf-test-bucket-233348"
+  bucket = "terraform-test-bucket-233348"
 
   tags = {
     Name        = "My bucket23"
@@ -29,12 +30,13 @@ resource "aws_s3_bucket" "b" {
   }
 }
 
-resource "aws_s3_bucket_acl" "example" {
+
+resource "aws_s3_bucket_acl" "" {
   bucket = aws_s3_bucket.b.id
   acl    = "private"
 }
 
-
+#********************VPC****************************
 resource "aws_vpc" "my_vpc" {
   cidr_block = "172.16.0.0/16"
 
@@ -67,11 +69,11 @@ resource "aws_network_interface" "foo" {
 
 
 
-resource "aws_ec2_transit_gateway" "example" {
+resource "aws_ec2_transit_gateway" "tras-gw" {
   description = "example"
 }
 
-#######Security Group
+#************************** Security Group **************************
 
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
@@ -101,8 +103,8 @@ resource "aws_security_group" "allow_tls" {
 # Compute instance
 
 
-
-resource "aws_instance" "terraform-ec2-example" {
+#************************** EC2 Instance **************************
+resource "aws_instance" "terraform-ec2-instance-1" {
   ami           = "ami-03c1fac8dd915ff60" 
   instance_type = "t2.micro"
   tags = {
