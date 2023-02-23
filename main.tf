@@ -107,7 +107,7 @@ resource "aws_security_group" "allow_tls" {
 resource "aws_instance" "terraform-ec2-instance-1" {
   ami           = "ami-03c1fac8dd915ff60" 
   instance_type = "t2.micro"
-  vpc_security_group_ids = "[allow_tls]"
+  vpc_security_group_ids = aws_security_group.allow_tls.id
   tags = {
     name = "Terraform-EC2"
   }
