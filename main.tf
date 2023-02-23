@@ -111,9 +111,6 @@ resource "aws_instance" "terraform-ec2-instance-1" {
   tags = {
     name = "Terraform-EC2"
   }
-
-  network_interface {
-    network_interface_id = aws_network_interface.foo.id
-    device_index         = 0
-  }
+ subnet_id = aws_subnet.my_subnet.id
+  
 }
