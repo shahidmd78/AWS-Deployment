@@ -32,7 +32,7 @@ resource "aws_s3_bucket" "s3-bucket" {
 
 
 resource "aws_s3_bucket_acl" "s3-bucket-acl" {
-  bucket = aws_s3_bucket.b.id
+  bucket = aws_s3_bucket.s3-bucket.id
   acl    = "private"
 }
 
